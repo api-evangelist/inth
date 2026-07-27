@@ -1,0 +1,41 @@
+generated: '2026-07-19'
+method: searched
+source: >-
+  https://c15t.com and c15t.com/docs — compliance/standards claims verified on the
+  product site and docs; cross-cutting API standards derived from the open-source
+  backend routes.
+description: >-
+  Standards conformance for c15t (Inth). c15t's domain is privacy/consent
+  regulation and the IAB TCF framework; the API-level cross-cutting standards
+  (OAuth, RFC 9457, etc.) are asserted from the open-source backend.
+conformance:
+  - id: gdpr
+    conforms: true
+    evidence: c15t generates GDPR-compliant consent banners, records consent by default, and resolves EU jurisdiction policy packs. https://c15t.com
+  - id: ccpa
+    conforms: true
+    evidence: CCPA (and CPRA) opt-out / Do-Not-Sell support is a documented supported jurisdiction. https://c15t.com
+  - id: lgpd
+    conforms: true
+    evidence: Brazil LGPD listed as a supported jurisdiction on the product site and npm descriptions.
+  - id: iab-tcf-2.3
+    conforms: true
+    evidence: IABConsentBanner/IABConsentDialog implement IAB TCF 2.3 with GVL vendor management. https://c15t.com/docs/frameworks/react/iab/consent-banner
+  - id: google-consent-mode-v2
+    conforms: true
+    evidence: Documented Google Consent Mode v2 + Google Tag Manager integration.
+  - id: global-privacy-control
+    conforms: true
+    evidence: GPC support added in v1.8.x and stabilized in v2.0.0. https://c15t.com/changelog
+  - id: oauth2
+    conforms: false
+    evidence: The backend authenticates with a static Bearer API key, not OAuth 2.0.
+  - id: rfc9457
+    conforms: false
+    evidence: Errors use a plain JSON envelope (error/message/code), not application/problem+json.
+  - id: idempotency
+    conforms: false
+    evidence: No idempotency-key header is documented on the write routes.
+  - id: pagination
+    conforms: false
+    evidence: List endpoints filter by external ID; no cursor/offset pagination is documented.

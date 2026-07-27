@@ -1,0 +1,26 @@
+generated: '2026-07-19'
+method: searched
+source: >-
+  https://www.npmjs.com/package/@c15t/cli and c15t.com quickstart docs. First-party
+  CLI published by the vendor under the c15t npm scope.
+name: "@c15t/cli"
+description: >-
+  First-party command-line tool for rapid c15t setup. Scaffolds React and Next.js
+  cookie banners and a preference center, generates types and config, and runs
+  migration tooling for self-hosted backend deployments.
+homepage: https://c15t.com/docs
+version: 2.1.0
+binary: c15t
+install:
+  - method: npx
+    command: npx @c15t/cli
+  - method: npm
+    command: npm install -D @c15t/cli
+commands:
+  - name: (init / onboarding)
+    description: Scaffold c15t into a React or Next.js project — components, provider, and config.
+  - name: generate
+    description: Generate TypeScript types and configuration from your consent setup.
+  - name: migrate
+    description: Run database migration tooling for self-hosted @c15t/backend deployments.
+notes: The compiled binary itself is catalogued in packages/inth-packages.yml (@c15t/cli).

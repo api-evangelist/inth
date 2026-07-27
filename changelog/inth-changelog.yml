@@ -1,0 +1,34 @@
+generated: '2026-07-19'
+method: searched
+source: https://c15t.com/changelog
+description: >-
+  Recent release history for c15t (Inth), from the dated public changelog.
+  c15t uses semantic versioning across its npm packages.
+scheme: semver
+current_version: 2.1.0
+changelog_url: https://c15t.com/changelog
+entries:
+  - version: 2.1.0
+    date: '2026-05-13'
+    breaking: false
+    highlights: Expanded script integrations and a registry-backed provider system; enhanced lifecycle utilities.
+  - version: 2.0.1
+    date: '2026-04-19'
+    breaking: false
+    highlights: TanStack Devtools support and Tailwind import ordering fixes.
+  - version: 2.0.0
+    date: '2026-04-14'
+    breaking: true
+    highlights: Stable v2 — token-based styling, policy packs, Global Privacy Control, and IAB TCF 2.3 support with architectural updates.
+  - version: 1.8.3
+    date: '2026-01-19'
+    breaking: false
+    highlights: Experimental Global Privacy Control support and bug fixes.
+  - version: 1.8.2
+    date: '2025-12-12'
+    breaking: false
+    highlights: React-specific bug fixes and improvements.
+  - version: 1.8.0
+    date: '2025-11-14'
+    breaking: false
+    highlights: Cross-subdomain consent, legal links, user identification, and EU languages.

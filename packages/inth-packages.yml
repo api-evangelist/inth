@@ -1,0 +1,66 @@
+generated: '2026-07-19'
+method: searched
+source: >-
+  https://registry.npmjs.org — first-party c15t / Inth client libraries confirmed
+  against the npm registry API and github.com/c15t/c15t. All packages are
+  published under the c15t npm scope by the vendor. HTTP status recorded at fetch
+  time (registry.npmjs.org returned 200 for each).
+description: >-
+  First-party c15t (Inth) JavaScript/TypeScript packages: the framework consent
+  SDKs, the self-hostable consent backend/API, the Node server SDK, and the setup
+  CLI. c15t is TypeScript-only; there are no first-party SDKs in other languages.
+packages:
+  - language: javascript
+    registry: npm
+    name: c15t
+    url: https://www.npmjs.com/package/c15t
+    source: https://github.com/c15t/c15t
+    install: npm install c15t
+    version: 2.1.0
+    official: true
+    note: Core headless consent manager / cookie banner for vanilla JS/TS.
+  - language: javascript
+    registry: npm
+    name: "@c15t/react"
+    url: https://www.npmjs.com/package/@c15t/react
+    source: https://github.com/c15t/c15t
+    install: npm install @c15t/react
+    version: 2.1.0
+    official: true
+    note: React consent components + hooks (RSC-compatible).
+  - language: javascript
+    registry: npm
+    name: "@c15t/nextjs"
+    url: https://www.npmjs.com/package/@c15t/nextjs
+    source: https://github.com/c15t/c15t
+    install: npm install @c15t/nextjs
+    version: 2.1.0
+    official: true
+    note: Next.js integration for c15t.
+  - language: javascript
+    registry: npm
+    name: "@c15t/backend"
+    url: https://www.npmjs.com/package/@c15t/backend
+    source: https://github.com/c15t/c15t
+    install: npm install @c15t/backend
+    version: 2.1.0
+    official: true
+    note: Consent policy engine + REST API (self-host or via inth.com). Serves the OpenAPI spec at /spec.json.
+  - language: javascript
+    registry: npm
+    name: "@c15t/node-sdk"
+    url: https://www.npmjs.com/package/@c15t/node-sdk
+    source: https://github.com/c15t/c15t
+    install: npm install @c15t/node-sdk
+    version: 2.1.0
+    official: true
+    note: Official Node.js server SDK — read/write consent records against the Consent Engine, with built-in auth and retries.
+  - language: javascript
+    registry: npm
+    name: "@c15t/cli"
+    url: https://www.npmjs.com/package/@c15t/cli
+    source: https://github.com/c15t/c15t
+    install: npx @c15t/cli
+    version: 2.1.0
+    official: true
+    note: Setup/scaffolding CLI; also detailed in cli/inth-cli.yml.

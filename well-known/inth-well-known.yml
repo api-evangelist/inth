@@ -1,0 +1,30 @@
+generated: '2026-07-19'
+method: searched
+source: Probed c15t.com and inth.com /.well-known/* and common discovery paths.
+description: >-
+  Well-known / discovery documents probed on the c15t and Inth hosts. c15t
+  publishes an RFC 9727 api-catalog linkset that points to its LLM docs map and an
+  agent-readability descriptor; no security.txt, openid-configuration, or
+  ai-plugin.json is published.
+probed:
+  - host: c15t.com
+    path: /.well-known/api-catalog
+    status: 200
+    file: inth-api-catalog.json
+    note: RFC 9727 linkset — service-doc -> /docs/llms.txt, service-desc -> /docs/agent-readability.json, describedby -> /sitemap.xml.
+  - host: c15t.com
+    path: /.well-known/security.txt
+    status: 404
+  - host: inth.com
+    path: /.well-known/security.txt
+    status: 404
+  - host: c15t.com
+    path: /.well-known/openid-configuration
+    status: 404
+  - host: c15t.com
+    path: /.well-known/ai-plugin.json
+    status: 404
+  - host: c15t.com
+    path: /llms.txt
+    status: 200
+    note: Curated docs map; saved verbatim at llms/inth-llms.txt (also linked from api-catalog service-doc as /docs/llms.txt).

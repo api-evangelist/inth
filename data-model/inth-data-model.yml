@@ -1,0 +1,45 @@
+generated: '2026-07-19'
+method: derived
+source: >-
+  github.com/c15t/c15t packages/backend/src/db/schema/2.0.0 — entity graph and
+  relations derived directly from the published v2.0.0 database schema
+  (fumadb tables + foreign-key relations) and the ID prefix map in
+  db/registry/utils/generate-id.ts.
+description: >-
+  The c15t consent data model (schema v2.0.0). A subject (end user) accrues
+  consent records against a domain, under a consent policy composed of consent
+  purposes; runtime policy decisions and an append-only audit log capture the
+  evidence trail. IDs are prefixed, time-ordered, base58-encoded.
+entities:
+  - name: subject
+    id_prefix: sub_
+    description: A data subject (end user) whose consent is tracked. Keyed by id; may carry externalId, identityProvider, tenantId.
+  - name: domain
+    id_prefix: dom_
+    description: A registered domain/property that consent is scoped to.
+  - name: consentPolicy
+    id_prefix: pol_
+    description: A consent policy (policy pack) that governs how consent is resolved for a jurisdiction.
+  - name: consentPurpose
+    id_prefix: pur_
+    description: A processing purpose / consent category (e.g. analytics, marketing).
+  - name: consent
+    id_prefix: cns_
+    description: A consent record linking a subject, domain, policy, and the runtime decision.
+  - name: runtimePolicyDecision
+    id_prefix: rpd_
+    description: The resolved policy decision produced at runtime for a given context.
+  - name: auditLog
+    id_prefix: log_
+    description: Append-only audit evidence of consent events for a subject.
+relationships:
+  - {from: subject, type: has_many, to: consent, via: subjectId}
+  - {from: subject, type: has_many, to: auditLog, via: subjectId}
+  - {from: domain, type: has_many, to: consent, via: domainId}
+  - {from: consentPolicy, type: has_many, to: consent, via: policyId}
+  - {from: runtimePolicyDecision, type: has_many, to: consent, via: runtimePolicyDecisionId}
+  - {from: consent, type: belongs_to, to: subject, via: subjectId}
+  - {from: consent, type: belongs_to, to: domain, via: domainId}
+  - {from: consent, type: belongs_to, to: consentPolicy, via: policyId}
+  - {from: consent, type: belongs_to, to: runtimePolicyDecision, via: runtimePolicyDecisionId}
+  - {from: auditLog, type: belongs_to, to: subject, via: subjectId}

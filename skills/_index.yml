@@ -1,0 +1,18 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/c15t/skills (c15t/skills/main/c15t/SKILL.md)
+description: >-
+  Vendor-published Agent Skill for c15t, saved verbatim. c15t ships an official
+  Agent Skill (github.com/c15t/skills, "Implement c15t with an agent") that teaches
+  coding agents to work with c15t consent management across Next.js/React/JS.
+skills:
+  - name: c15t
+    file: inth-c15t.md
+    official: true
+    api: c15t Consent Backend API
+    source: https://github.com/c15t/skills/blob/main/c15t/SKILL.md
+    description: >-
+      Work with c15t consent management docs, APIs, and integrations for Next.js,
+      React, and JavaScript — setup, components, hooks, styling, cookie/consent UX,
+      GDPR/CCPA/IAB TCF compliance, script/iframe blocking, integrations, and
+      self-hosting c15t/backend.

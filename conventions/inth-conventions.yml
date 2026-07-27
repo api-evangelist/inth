@@ -1,0 +1,64 @@
+generated: '2026-07-19'
+method: searched
+source: >-
+  https://c15t.com/docs/self-host and github.com/c15t/c15t packages/backend —
+  cross-cutting request/response conventions of the c15t consent backend, derived
+  from the Hono route handlers and client-modes docs.
+description: >-
+  How the c15t consent backend behaves across every operation: authentication
+  style, identifiers, versioning, the client connection modes, error envelope,
+  and pagination. These runtime-semantics conventions complement the OpenAPI spec.
+base_url: https://your-instance.c15t.dev
+api_style: REST over HTTPS, JSON requests and responses, built on Hono.
+
+authentication:
+  scheme: Bearer token (API key) in the Authorization header
+  key_format: "Secret API keys are prefixed sk_live_ (e.g. Authorization: Bearer sk_live_...)"
+  public_endpoints: [GET /init, GET /status, GET /spec.json]
+  key_required_endpoints: ["GET /subjects", "PUT /legal-documents/{type}/current"]
+  detail: authentication/inth-authentication.yml
+
+identifiers:
+  style: Prefixed, time-ordered, base58-encoded (ULID-like) IDs.
+  prefixes:
+    subject: sub_
+    consent: cns_
+    consentPolicy: pol_
+    consentPurpose: pur_
+    domain: dom_
+    runtimePolicyDecision: rpd_
+    auditLog: log_
+  detail: data-model/inth-data-model.yml
+
+client_modes:
+  description: How the browser SDK connects to the backend (from client-modes docs).
+  modes:
+    - {name: hosted, note: "Default. Connects to a c15t backend (inth.com managed or self-hosted). backendURL required, e.g. https://your-instance.c15t.dev. Legacy alias 'c15t'."}
+    - {name: offline, note: "No backend — local-only for demos, previews, static sites, controlled fallback. Doubles as the sandbox/dev mode."}
+    - {name: custom, note: "Bring-your-own transport/handlers."}
+
+idempotency:
+  supported: false
+  note: >-
+    The published backend routes do not document a dedicated idempotency-key
+    header. Consent writes are keyed by subject/domain/policy identity rather than
+    a client idempotency key.
+
+pagination:
+  style: none-documented
+  note: List endpoints (GET /subjects) filter by external ID; no cursor/offset paging is documented in the open-source routes.
+
+versioning:
+  scheme: semver (npm package versions); database schema is separately versioned (1.0.0, 2.0.0).
+  current: 2.1.0
+  detail: changelog/inth-changelog.yml
+
+error_envelope:
+  format: JSON object with error/message/code fields.
+  detail: errors/inth-problem-types.yml
+
+deployment:
+  self_host: https://c15t.com/docs/self-host
+  managed: https://inth.com
+  db_adapters: [drizzle, kysely, prisma, typeorm, mongo]
+  cache_adapters: [memory, cloudflare-kv, upstash-redis]

@@ -1,0 +1,31 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://c15t.com/",
+      "api-catalog": [
+        {
+          "href": "https://c15t.com/.well-known/api-catalog",
+          "type": "application/linkset+json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://c15t.com/docs/llms.txt",
+          "type": "text/plain"
+        }
+      ],
+      "service-desc": [
+        {
+          "href": "https://c15t.com/docs/agent-readability.json",
+          "type": "application/json"
+        }
+      ],
+      "describedby": [
+        {
+          "href": "https://c15t.com/sitemap.xml",
+          "type": "application/xml"
+        }
+      ]
+    }
+  ]
+}

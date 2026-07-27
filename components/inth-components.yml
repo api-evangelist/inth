@@ -1,0 +1,41 @@
+generated: '2026-07-19'
+method: searched
+source: >-
+  https://c15t.com/docs — the @c15t/react component catalog (from the curated
+  llms.txt docs map). These are embeddable, client-side consent UI components,
+  distinct from the server SDKs in packages/inth-packages.yml.
+description: >-
+  c15t's client-side, embeddable consent UI components. A headless, composable
+  consent system rendered in the browser: a policy-aware banner, a category
+  dialog/preference center, inline widgets, consent-gated content wrappers, and
+  IAB TCF 2.3 surfaces. Loaded and coordinated by the ConsentManagerProvider.
+docs:
+  - https://c15t.com/docs/frameworks/react/components/consent-manager-provider
+  - https://c15t.com/docs/frameworks/react/headless
+libraries:
+  - {name: "@c15t/react", purpose: React consent components + hooks; catalogued in packages/}
+  - {name: "@c15t/nextjs", purpose: Next.js bindings for the same component set}
+  - {name: c15t, purpose: Vanilla JS/TS headless core}
+families:
+  core:
+    description: The root provider and pre-built consent surfaces.
+    components:
+      - {name: ConsentManagerProvider, description: Root provider that initializes the consent system and shares state with all child components.}
+      - {name: ConsentBanner, description: Pre-built, policy-aware consent banner shown when consent is needed. Themable and composable.}
+      - {name: ConsentDialog, description: Modal dialog for toggling individual consent categories.}
+      - {name: ConsentWidget, description: Inline consent management widget (accordion category toggles) for settings/privacy pages.}
+      - {name: ConsentDialogTrigger, description: Floating, draggable button to re-open the consent dialog at any time.}
+      - {name: ConsentDialogLink, description: Inline trigger to open the consent dialog from footers, legal pages, and account settings.}
+      - {name: Frame, description: Consent-gated content wrapper — children mount only when the required category is granted.}
+      - {name: DevTools, description: Development inspector for consent state, geolocation, loaded scripts, and consent events.}
+  iab:
+    description: IAB TCF 2.3 compliant surfaces for programmatic advertising consent.
+    components:
+      - {name: IABConsentBanner, description: TCF 2.3 banner showing partner count, purpose summaries, and legitimate-interest notices.}
+      - {name: IABConsentDialog, description: TCF 2.3 preference center with tabbed purpose and vendor management.}
+  headless:
+    description: Build fully custom consent UI with hooks only — no pre-built components.
+    components:
+      - {name: useConsentManager, description: Hook to read/set/save consent preferences programmatically.}
+      - {name: useFocusTrap, description: Accessible focus trapping for custom modal dialogs.}
+      - {name: useColorScheme, description: Light/dark/system color-scheme management for consent UI.}

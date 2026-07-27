@@ -1,0 +1,27 @@
+generated: '2026-07-19'
+method: searched
+source: https://c15t.com/docs/frameworks/react/concepts/client-modes
+description: >-
+  c15t does not ship a payments-style sandbox with test cards. Its testing/dev
+  surface is the "offline" client mode plus the setup CLI. Offline mode runs the
+  full consent UX with no backend, for local development, demos, previews, static
+  sites, and controlled fallback. No test key prefixes or fixture tokens are
+  published (secret keys use the sk_live_ prefix).
+modes:
+  - name: offline
+    description: >-
+      Local-only mode — the consent manager renders and persists client-side with
+      no backend calls. Intended for local development, demos, previews, static
+      sites, and controlled fallback.
+    config: "mode: 'offline'"
+  - name: hosted (dev instance)
+    description: >-
+      A hosted backend instance (backendURL, e.g. https://your-instance.c15t.dev)
+      can be used as a development environment separate from production.
+tooling:
+  - name: "@c15t/cli"
+    description: Scaffolds a working setup and generates types/config for local testing.
+    detail: cli/inth-cli.yml
+test_values:
+  published: false
+  note: No provider-published test cards, tokens, or test-key prefixes exist for a consent API.

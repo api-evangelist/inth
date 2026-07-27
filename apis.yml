@@ -1,22 +1,170 @@
 aid: inth
 name: Inth
-description: Inth is a company surfaced as a portfolio company of y-combinator and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Inth is a San Francisco, Y Combinator-backed company building enterprise
+  privacy governance for teams that ship fast, making consent programmable,
+  observable, and compliant by default. Its foundation is c15t (github.com/c15t),
+  an open-source, developer-first consent management platform with 3M+ npm
+  downloads used by teams like Zed, Expo, Infisical, and Unkey. c15t provides a
+  headless, composable cookie banner, consent manager, and preference center for
+  JavaScript, React, and Next.js, plus a self-hostable consent backend and REST
+  API (@c15t/backend) that also runs as the inth.com managed service. It supports
+  GDPR, CCPA, LGPD, IAB TCF 2.3, Google Consent Mode v2, and Global Privacy
+  Control, with regional policy packs, audit-ready consent records, script and
+  iframe gating, and first-party SDKs and CLI.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://inth.com/opengraph-image.png
 url: https://raw.githubusercontent.com/api-evangelist/inth/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - y-combinator
-x-tier: stub
+x-tier: enriched
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
-apis: []
+- Consent Management
+- Privacy
+- Cookie Consent
+- GDPR
+- CCPA
+- Compliance
+- Consent
+- Developer Tools
+- Open Source
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+common:
+- type: DomainSecurity
+  url: security/inth-domain-security.yml
+- type: DeveloperPortal
+  url: https://c15t.com/docs
+- type: Documentation
+  url: https://c15t.com/docs
+- type: APIReference
+  url: https://c15t.com/docs/self-host
+- type: Quickstart
+  url: https://c15t.com/docs/frameworks/react/quickstart
+- type: GitHubOrganization
+  url: https://github.com/c15t
+- type: Pricing
+  url: https://inth.com/pricing
+- type: Blog
+  url: https://inth.com/blog
+- type: SignUp
+  url: https://inth.com/dashboard/sign-up
+- type: Support
+  url: https://github.com/c15t/c15t/issues
+- type: ChangeLog
+  url: https://c15t.com/changelog
+- type: StatusPage
+  url: https://status.inth.com
+- type: Deprecation
+  url: lifecycle/inth-lifecycle.yml
+- type: Lifecycle
+  url: lifecycle/inth-lifecycle.yml
+- type: Packages
+  url: packages/inth-packages.yml
+- type: SDKs
+  url: packages/inth-packages.yml
+- type: CLI
+  url: cli/inth-cli.yml
+- type: Components
+  url: components/inth-components.yml
+- type: Conventions
+  url: conventions/inth-conventions.yml
+- type: Authentication
+  url: authentication/inth-authentication.yml
+- type: ErrorCatalog
+  url: errors/inth-problem-types.yml
+- type: Conformance
+  url: conformance/inth-conformance.yml
+- type: Compliance
+  url: conformance/inth-conformance.yml
+- type: DataModel
+  url: data-model/inth-data-model.yml
+- type: ChangeLog
+  url: changelog/inth-changelog.yml
+- type: MCPServer
+  url: mcp/inth-mcp.yml
+- type: LLMsTxt
+  url: llms/inth-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+- type: WellKnown
+  url: well-known/inth-well-known.yml
+- type: Sandbox
+  url: sandbox/inth-sandbox.yml
+apis:
+- aid: inth:inth-consent-api
+  name: Inth Consent API
+  description: The Consent API from Inth — 1 operation(s) for consent.
+  humanURL: https://c15t.com/docs/self-host
+  baseURL: https://your-instance.c15t.dev
+  tags:
+  - Consent
+  properties:
+  - type: OpenAPI
+    url: openapi/inth-consent-api-openapi.yml
+- aid: inth:inth-init-api
+  name: Inth Init API
+  description: The Init API from Inth — 1 operation(s) for init.
+  humanURL: https://c15t.com/docs/self-host
+  baseURL: https://your-instance.c15t.dev
+  tags:
+  - Init
+  properties:
+  - type: OpenAPI
+    url: openapi/inth-init-api-openapi.yml
+- aid: inth:inth-legal-documents-api
+  name: Inth Legal Documents API
+  description: The Legal Documents API from Inth — 1 operation(s) for legal documents.
+  humanURL: https://c15t.com/docs/self-host
+  baseURL: https://your-instance.c15t.dev
+  tags:
+  - Legal Documents
+  properties:
+  - type: OpenAPI
+    url: openapi/inth-legal-documents-api-openapi.yml
+- aid: inth:inth-status-api
+  name: Inth Status API
+  description: The Status API from Inth — 2 operation(s) for status.
+  humanURL: https://c15t.com/docs/self-host
+  baseURL: https://your-instance.c15t.dev
+  tags:
+  - Status
+  properties:
+  - type: OpenAPI
+    url: openapi/inth-status-api-openapi.yml
+- aid: inth:inth-subjects-api
+  name: Inth Subjects API
+  description: The Subjects API from Inth — 2 operation(s) for subjects.
+  humanURL: https://c15t.com/docs/self-host
+  baseURL: https://your-instance.c15t.dev
+  tags:
+  - Subjects
+  properties:
+  - type: OpenAPI
+    url: openapi/inth-subjects-api-openapi.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

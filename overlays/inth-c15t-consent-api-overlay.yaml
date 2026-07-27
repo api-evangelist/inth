@@ -1,0 +1,30 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the c15t Consent Backend API
+  version: 1.0.0
+extends: ../openapi/inth-c15t-consent-api.yml
+x-provenance:
+  generated: '2026-07-19'
+  method: generated
+  source: >-
+    Derived from github.com/c15t/c15t packages/backend route handlers and
+    c15t.com docs. Overlay layers API Evangelist metadata onto the base spec
+    without mutating it.
+actions:
+  - target: $.info
+    description: Tag the specification with API Evangelist enrichment metadata.
+    update:
+      x-apis-io-enriched: true
+      x-consent-standards: [GDPR, CCPA, LGPD, IAB TCF 2.3, Global Privacy Control]
+  - target: $.paths['/subjects']['get']
+    description: Flag the operation that requires a server-side API key.
+    update:
+      x-requires-api-key: true
+  - target: $.paths['/legal-documents/{type}/current']['put']
+    description: Flag the operation that requires a server-side API key.
+    update:
+      x-requires-api-key: true
+  - target: $.paths['/init']['get']
+    description: Note that this endpoint is public and client-callable.
+    update:
+      x-public: true

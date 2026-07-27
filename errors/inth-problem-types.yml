@@ -1,0 +1,38 @@
+generated: '2026-07-19'
+method: derived
+source: >-
+  Derived from the response shapes of the c15t consent backend routes
+  (github.com/c15t/c15t packages/backend). c15t returns a plain JSON error
+  envelope (error/message/code), not RFC 9457 application/problem+json.
+description: >-
+  Error catalog for the c15t consent backend. Errors are returned as a JSON
+  object with error, message, and code fields. Status codes below are derived
+  from the route handlers and standard Hono/HTTP semantics.
+format: json-envelope
+envelope:
+  fields: [error, message, code]
+problem_types:
+  - status: 400
+    title: Bad Request
+    detail: Malformed request body or missing/invalid query parameters (e.g. externalId).
+    remediation: Validate the request payload/parameters against the OpenAPI schema.
+  - status: 401
+    title: Unauthorized
+    detail: Missing or malformed Bearer API key on a key-protected endpoint.
+    remediation: "Send Authorization: Bearer sk_live_<key> with a valid key."
+  - status: 403
+    title: Forbidden
+    detail: The API key is valid but not authorized for the requested resource/tenant.
+    remediation: Use a key scoped to the correct instance/domain.
+  - status: 404
+    title: Not Found
+    detail: Subject or resource does not exist (e.g. unknown subject id).
+    remediation: Verify the sub_ identifier or external ID.
+  - status: 422
+    title: Unprocessable Entity
+    detail: Request was well-formed but failed consent/schema validation.
+    remediation: Ensure the consent payload matches the active policy pack and purposes.
+  - status: 500
+    title: Internal Server Error
+    detail: Unexpected backend error (storage adapter, cache, or policy resolution failure).
+    remediation: Retry; if persistent, check backend logs / storage adapter health.

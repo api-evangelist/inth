@@ -1,0 +1,22 @@
+{
+  "provider": "inth",
+  "sources": [
+    "inth-consent-api-openapi.yml",
+    "inth-init-api-openapi.yml",
+    "inth-legal-documents-api-openapi.yml",
+    "inth-status-api-openapi.yml",
+    "inth-subjects-api-openapi.yml"
+  ],
+  "outputs": [
+    "inth-consent-api-openapi.yml",
+    "inth-init-api-openapi.yml",
+    "inth-legal-documents-api-openapi.yml",
+    "inth-status-api-openapi.yml",
+    "inth-subjects-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

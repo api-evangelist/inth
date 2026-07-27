@@ -1,0 +1,40 @@
+generated: '2026-07-19'
+method: derived
+status: candidate
+source: >-
+  No official hosted/remote c15t MCP server was found (searched c15t.com, the
+  c15t GitHub org, and npm; the vendor ships an Agent Skill at
+  github.com/c15t/skills instead). The tools below are a CANDIDATE mapping DERIVED
+  from the open-source consent backend operations — not an endorsed server.
+description: >-
+  Candidate MCP tool surface for the c15t consent backend, one tool per REST
+  operation. c15t currently provides agent integration via a packaged Agent Skill
+  (see skills/inth-c15t.md), not an MCP server.
+server:
+  official: false
+  hosted_url: null
+tools:
+  - name: get_status
+    description: Health check and API status.
+    maps_to: GET /status
+  - name: get_init
+    description: Get initial consent manager state (policy, geo, translations).
+    maps_to: GET /init
+  - name: check_consent
+    description: Check consent by external user ID.
+    maps_to: GET /consents/check
+  - name: get_subject
+    description: Get a subject's consent status by id.
+    maps_to: GET /subjects/{id}
+  - name: list_subjects
+    description: List subjects by external ID (API key required).
+    maps_to: GET /subjects
+  - name: record_consent
+    description: Record consent for a subject.
+    maps_to: POST /subjects
+  - name: link_subject_external_id
+    description: Link an external ID to a subject.
+    maps_to: PATCH /subjects/{id}
+  - name: sync_legal_document
+    description: Sync the current legal document release (API key required).
+    maps_to: PUT /legal-documents/{type}/current

@@ -1,0 +1,32 @@
+generated: '2026-07-19'
+method: searched
+source: >-
+  https://c15t.com/changelog, https://status.inth.com, and the c15t npm packages.
+  Versioning and deprecation posture derived from the public changelog + package
+  versions.
+description: >-
+  Lifecycle posture for c15t (Inth): semantic versioning, a dated public
+  changelog, a hosted status page, and a v1 -> v2 breaking-change transition with
+  a documented migration path.
+versioning:
+  scheme: semver
+  current_version: 2.1.0
+  policy: >-
+    Packages and the backend follow semantic versioning. The database schema is
+    independently versioned (1.0.0, 2.0.0). Major releases (v2.0.0) may carry
+    breaking changes and ship a migration path.
+deprecation:
+  policy_documented: true
+  detail: >-
+    v2.0.0 (2026-04-14) introduced breaking changes (token-based styling, policy
+    packs, IAB TCF 2.3). The v2 agent skill instructs tooling to offer a v2
+    migration path for projects on older versions. `mode: 'c15t'` is a legacy
+    alias deprecated in favor of `mode: 'hosted'`.
+  migration_docs: https://c15t.com/docs
+status_page:
+  url: https://status.inth.com
+  note: Hosted status page for the inth.com managed platform (HTTP 200).
+changelog: https://c15t.com/changelog
+sla:
+  documented: false
+  note: No public SLA document found; enterprise SLAs are handled via sales.
