@@ -1,0 +1,31 @@
+{
+  "name": "c15t",
+  "description": "Open-source consent management for React, Next.js, and modern web apps.",
+  "url": "https://c15t.com/mcp",
+  "version": "1.0.0",
+  "provider": {
+    "organization": "Inth",
+    "url": "https://inth.com"
+  },
+  "documentationUrl": "https://c15t.com/docs",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/markdown"
+  ],
+  "skills": [
+    {
+      "id": "c15t",
+      "name": "c15t",
+      "description": "Implement c15t with an agent. Use when working with c15t v2+ setup, configuration, APIs, consent UX, script loading, integrations, styling, or self-hosting.",
+      "tags": [
+        "documentation"
+      ]
+    }
+  ]
+}
