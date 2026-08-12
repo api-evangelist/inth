@@ -52,6 +52,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Overlay
+  url: overlays/inth-c15t-consent-api-overlay.yaml
 - type: AgentCard
   url: a2a/inth-a2a.yml
   name: A2A Agent Card
