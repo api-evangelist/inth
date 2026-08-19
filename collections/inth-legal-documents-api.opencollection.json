@@ -1,0 +1,46 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "c15t Backend Consent Legal Documents API",
+    "version": "2.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Legal Documents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sync the current legal document release (API key required)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://your-instance.c15t.dev/legal-documents/:type/current",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sync the current legal document release (API key required)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

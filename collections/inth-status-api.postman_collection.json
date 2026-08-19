@@ -1,0 +1,191 @@
+{
+  "item": [
+    {
+      "id": "762d9d4c-e7c9-4be4-b636-f540f014c334",
+      "name": "Status",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "05d61541-1809-46ec-b091-54a3efd5f96e",
+          "name": "Health check and API status",
+          "request": {
+            "name": "Health check and API status",
+            "description": {},
+            "url": {
+              "path": [
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "520816d7-ab90-4497-b946-930fcb1709b9",
+              "name": "Backend is healthy and reachable.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc3dda95-2606-4ef6-ad49-47c37c56c621",
+          "name": "OpenAPI specification for this backend (generated at runtime)",
+          "request": {
+            "name": "OpenAPI specification for this backend (generated at runtime)",
+            "description": {},
+            "url": {
+              "path": [
+                "spec.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bd48d721-e4ed-40e4-b3db-bcfeae7b5393",
+              "name": "OpenAPI document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "spec.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://your-instance.c15t.dev",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f5bf297b-a39e-4622-81aa-332d7bd6b540",
+    "name": "c15t Backend Consent Status API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for the c15t consent backend (@c15t/backend) that powers the c15t cookie banner, consent manager, and preference center. The same API runs whether self-hosted or used through the Inth (inth.com) managed platform. This specification was DERIVED faithfully from the published open-source Hono route handlers in packages/backend of github.com/c15t/c15t (the live runtime spec is generated by hono-openapi and served at /spec.json). Requests are authenticated with a Bearer API key; a subset of endpoints are public (init/status) and are called directly by the browser SDK.\n\nContact Support:\n Name: c15t",
+      "type": "text/plain"
+    }
+  }
+}

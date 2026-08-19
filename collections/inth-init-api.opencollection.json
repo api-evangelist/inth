@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "c15t Backend Consent Init API",
+    "version": "2.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Init",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get initial consent manager state",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-instance.c15t.dev/init"
+          },
+          "docs": "Returns the initial state the browser SDK needs to render a banner: resolved policy pack, geo/jurisdiction, translations, and whether consent is required. Public — called directly from the client."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

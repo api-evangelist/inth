@@ -1,0 +1,90 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "c15t Backend Consent Subjects API",
+    "version": "2.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Subjects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List subjects by external ID (API key required)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-instance.c15t.dev/subjects"
+          },
+          "docs": "List subjects by external ID (API key required)"
+        },
+        {
+          "info": {
+            "name": "Record consent for a subject",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://your-instance.c15t.dev/subjects",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Record consent for a subject"
+        },
+        {
+          "info": {
+            "name": "Get subject consent status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-instance.c15t.dev/subjects/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get subject consent status"
+        },
+        {
+          "info": {
+            "name": "Link external ID to subject",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://your-instance.c15t.dev/subjects/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Link external ID to subject"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

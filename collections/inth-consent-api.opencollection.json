@@ -1,0 +1,42 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "c15t Backend Consent API",
+    "version": "2.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Consent",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check consent by external user ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://your-instance.c15t.dev/consents/check",
+            "params": [
+              {
+                "name": "externalId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Check consent by external user ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
