@@ -12,6 +12,18 @@ description: >-
   GDPR, CCPA, LGPD, IAB TCF 2.3, Google Consent Mode v2, and Global Privacy
   Control, with regional policy packs, audit-ready consent records, script and
   iframe gating, and first-party SDKs and CLI.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
