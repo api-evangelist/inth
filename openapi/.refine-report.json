@@ -1,11 +1,7 @@
 {
   "provider": "inth",
   "sources": [
-    "inth-consent-api-openapi.yml",
-    "inth-init-api-openapi.yml",
-    "inth-legal-documents-api-openapi.yml",
-    "inth-status-api-openapi.yml",
-    "inth-subjects-api-openapi.yml"
+    "_original/inth-c15t-consent-api.yml"
   ],
   "outputs": [
     "inth-consent-api-openapi.yml",
@@ -17,6 +13,16 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "inth-c15t-consent-api.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "inth-consent-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "inth-init-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "inth-legal-documents-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "inth-status-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "inth-subjects-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
