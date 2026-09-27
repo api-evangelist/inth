@@ -107,15 +107,6 @@ paths:
           $ref: '#/components/responses/Problem'
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        message:
-          type: string
-        code:
-          type: string
     Subject:
       type: object
       description: A data subject (end user) whose consent is tracked. IDs are prefixed `sub_`.
@@ -132,6 +123,15 @@ components:
         tenantId:
           type: string
           nullable: true
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: string
     Consent:
       type: object
       description: A consent record. IDs are prefixed `cns_`.
