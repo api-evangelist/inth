@@ -106,16 +106,14 @@ paths:
         '404':
           $ref: '#/components/responses/Problem'
 components:
+  responses:
+    Problem:
+      description: Error response.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        message:
-          type: string
-        code:
-          type: string
     Consent:
       type: object
       description: A consent record. IDs are prefixed `cns_`.
@@ -128,6 +126,15 @@ components:
         domainId:
           type: string
         policyId:
+          type: string
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+        code:
           type: string
     Subject:
       type: object
@@ -145,13 +152,6 @@ components:
         tenantId:
           type: string
           nullable: true
-  responses:
-    Problem:
-      description: Error response.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   securitySchemes:
     bearerAuth:
       type: http
