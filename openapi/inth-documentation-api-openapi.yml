@@ -1,0 +1,242 @@
+openapi: 3.2.0
+info:
+  title: c15t Agent Documentation API
+  version: 1.0.0
+  description: Public, read-only endpoints for searching c15t documentation and checking docs availability.
+  license:
+    name: Apache License 2.0
+    identifier: Apache-2.0
+  contact:
+    name: c15t developer support
+    url: https://c15t.com/docs
+servers:
+- url: https://c15t.com
+  description: Production
+security: []
+tags:
+- name: Documentation
+  description: Search the public c15t documentation corpus.
+paths:
+  /ask:
+    get:
+      operationId: searchC15tDocumentation
+      summary: Search c15t documentation
+      description: Returns ranked c15t documentation pages for a natural-language query. Set streaming to true to receive server-sent events instead of one JSON document.
+      tags:
+      - Documentation
+      parameters:
+      - name: query
+        in: query
+        required: true
+        description: Natural-language question or search phrase.
+        schema:
+          type: string
+          minLength: 1
+        example: How do I add c15t to a Next.js app?
+      - name: query_id
+        in: query
+        required: false
+        description: Caller-provided identifier used to correlate the response.
+        schema:
+          type: string
+      - name: streaming
+        in: query
+        required: false
+        description: Return NLWeb server-sent events when true. Defaults to false.
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: Ranked documentation results.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NlwebAnswer'
+            text/event-stream:
+              schema:
+                type: string
+                description: NLWeb start, result, and complete events.
+        '400':
+          description: The query is missing or empty.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NlwebFailure'
+        '500':
+          description: The documentation index could not answer the query.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NlwebFailure'
+    post:
+      operationId: searchC15tDocumentationWithJson
+      summary: Search c15t documentation with JSON
+      description: Returns ranked c15t documentation pages for a JSON query. This form is convenient for agents using function calling.
+      tags:
+      - Documentation
+      requestBody:
+        required: true
+        description: The documentation query and optional response controls.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NlwebQuery'
+      responses:
+        '200':
+          description: Ranked documentation results.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NlwebAnswer'
+            text/event-stream:
+              schema:
+                type: string
+                description: NLWeb start, result, and complete events.
+        '400':
+          description: The JSON body does not contain a non-empty query.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NlwebFailure'
+        '500':
+          description: The documentation index could not answer the query.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NlwebFailure'
+components:
+  schemas:
+    NlwebAnswer:
+      type: object
+      additionalProperties: false
+      required:
+      - query_id
+      - _meta
+      - results
+      properties:
+        query_id:
+          type: string
+        _meta:
+          $ref: '#/components/schemas/NlwebAnswerMeta'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NlwebResult'
+    NlwebFailureMeta:
+      allOf:
+      - $ref: '#/components/schemas/NlwebMeta'
+      - type: object
+        properties:
+          response_type:
+            const: failure
+    NlwebMeta:
+      type: object
+      additionalProperties: false
+      required:
+      - response_type
+      - version
+      properties:
+        response_type:
+          type: string
+          enum:
+          - answer
+          - failure
+        version:
+          type: string
+          const: '0.55'
+        streaming:
+          type: boolean
+    NlwebResult:
+      type: object
+      additionalProperties: false
+      required:
+      - url
+      - name
+      - site
+      - score
+      - description
+      - schema_object
+      properties:
+        url:
+          type: string
+          format: uri
+        name:
+          type: string
+        site:
+          type: string
+        score:
+          type: number
+        description:
+          type: string
+        schema_object:
+          type: object
+          description: Schema.org TechArticle metadata for the result.
+          additionalProperties: true
+    NlwebAnswerMeta:
+      allOf:
+      - $ref: '#/components/schemas/NlwebMeta'
+      - type: object
+        properties:
+          response_type:
+            const: answer
+    NlwebQuery:
+      type: object
+      description: A natural-language documentation query.
+      additionalProperties: false
+      required:
+      - query
+      properties:
+        query:
+          type: string
+          minLength: 1
+          description: Natural-language question or search phrase.
+        query_id:
+          type: string
+          description: Caller-provided identifier used to correlate the response.
+        streaming:
+          type: boolean
+          default: false
+          description: Return NLWeb server-sent events when true.
+    NlwebFailure:
+      type: object
+      additionalProperties: false
+      required:
+      - query_id
+      - _meta
+      - error
+      - results
+      properties:
+        query_id:
+          type: string
+        _meta:
+          $ref: '#/components/schemas/NlwebFailureMeta'
+        error:
+          type: object
+          additionalProperties: true
+          description: Structured failure details. Leadtype may add upstream diagnostic fields.
+          required:
+          - code
+          - message
+          - resolution
+          properties:
+            code:
+              type: string
+              enum:
+              - invalid_query
+              - docs_search_unavailable
+              description: Stable identifier for programmatic error handling.
+            message:
+              type: string
+              description: A description of the request failure.
+            resolution:
+              type: string
+              description: A concrete action the caller can take to resolve the failure.
+        results:
+          type: array
+          maxItems: 0
+          items:
+            $ref: '#/components/schemas/NlwebResult'
+externalDocs:
+  description: c15t documentation and agent entry points
+  url: https://c15t.com/llms.txt

@@ -1,0 +1,12 @@
+{
+ "url": "https://c15t.com/openapi.json",
+ "final": "https://c15t.com/openapi.json",
+ "status": 200,
+ "content_type": "application/vnd.oai.openapi+json;version=3.1",
+ "bytes": 8857,
+ "sha256": "b599f61ee936000565db6ebbc2321c674315b6a18ce51e849f5684feffb3b651",
+ "fetched_at": "2026-10-19",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "re-archived: the provider's current document replaced a stale archive (roadmap#793); the old files are in openapi/_superseded/2026-10-19-stale"
+}

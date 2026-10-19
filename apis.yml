@@ -151,56 +151,26 @@ common:
 - type: Sandbox
   url: sandbox/inth-sandbox.yml
 apis:
-- aid: inth:inth-consent-api
-  name: Inth Consent API
-  description: The Consent API from Inth — 1 operation(s) for consent.
+- aid: inth:inth-documentation-api
+  name: Inth Documentation API
+  description: Search the public c15t documentation corpus.
   humanURL: https://c15t.com/docs/self-host
   baseURL: https://your-instance.c15t.dev
   tags:
-  - Consent
+  - Documentation
   properties:
   - type: OpenAPI
-    url: openapi/inth-consent-api-openapi.yml
-- aid: inth:inth-init-api
-  name: Inth Init API
-  description: The Init API from Inth — 1 operation(s) for init.
+    url: openapi/inth-documentation-api-openapi.yml
+- aid: inth:inth-operations-api
+  name: Inth Operations API
+  description: Check whether the c15t documentation application is available.
   humanURL: https://c15t.com/docs/self-host
   baseURL: https://your-instance.c15t.dev
   tags:
-  - Init
+  - Operations
   properties:
   - type: OpenAPI
-    url: openapi/inth-init-api-openapi.yml
-- aid: inth:inth-legal-documents-api
-  name: Inth Legal Documents API
-  description: The Legal Documents API from Inth — 1 operation(s) for legal documents.
-  humanURL: https://c15t.com/docs/self-host
-  baseURL: https://your-instance.c15t.dev
-  tags:
-  - Legal Documents
-  properties:
-  - type: OpenAPI
-    url: openapi/inth-legal-documents-api-openapi.yml
-- aid: inth:inth-status-api
-  name: Inth Status API
-  description: The Status API from Inth — 2 operation(s) for status.
-  humanURL: https://c15t.com/docs/self-host
-  baseURL: https://your-instance.c15t.dev
-  tags:
-  - Status
-  properties:
-  - type: OpenAPI
-    url: openapi/inth-status-api-openapi.yml
-- aid: inth:inth-subjects-api
-  name: Inth Subjects API
-  description: The Subjects API from Inth — 2 operation(s) for subjects.
-  humanURL: https://c15t.com/docs/self-host
-  baseURL: https://your-instance.c15t.dev
-  tags:
-  - Subjects
-  properties:
-  - type: OpenAPI
-    url: openapi/inth-subjects-api-openapi.yml
+    url: openapi/inth-operations-api-openapi.yml
 x-enrichment:
   date: '2026-07-19'
   status: backfilled

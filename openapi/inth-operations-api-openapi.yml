@@ -1,0 +1,51 @@
+openapi: 3.2.0
+info:
+  title: c15t Agent Operations API
+  version: 1.0.0
+  description: Public, read-only endpoints for searching c15t documentation and checking docs availability.
+  license:
+    name: Apache License 2.0
+    identifier: Apache-2.0
+  contact:
+    name: c15t developer support
+    url: https://c15t.com/docs
+servers:
+- url: https://c15t.com
+  description: Production
+security: []
+tags:
+- name: Operations
+  description: Check whether the c15t documentation application is available.
+paths:
+  /api/status:
+    get:
+      operationId: getC15tDocsStatus
+      summary: Get documentation status
+      description: Returns the current availability of the c15t documentation application.
+      tags:
+      - Operations
+      responses:
+        '200':
+          description: The documentation application is available.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+components:
+  schemas:
+    Status:
+      type: object
+      additionalProperties: false
+      required:
+      - status
+      - timestamp
+      properties:
+        status:
+          type: string
+          const: ok
+        timestamp:
+          type: string
+          format: date-time
+externalDocs:
+  description: c15t documentation and agent entry points
+  url: https://c15t.com/llms.txt
