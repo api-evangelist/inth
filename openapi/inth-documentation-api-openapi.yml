@@ -240,3 +240,9 @@ components:
 externalDocs:
   description: c15t documentation and agent entry points
   url: https://c15t.com/llms.txt
+x-provenance:
+  method: harvested
+  publisher: Inth
+  source: https://c15t.com/openapi.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
