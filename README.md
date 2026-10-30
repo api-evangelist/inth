@@ -64,6 +64,83 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Inth is a company surfaced as a portfolio company of y-combinator and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Inth is a San Francisco, Y Combinator-backed company building enterprise privacy governance for teams that ship fast, making consent programmable, observable, and compliant by default. Its foundation is c15t (github.com/c15t), an open-source, developer-first consent management platform with 3M+ npm downloads used by teams like Zed, Expo, Infisical, and Unkey. c15t provides a headless, composable cookie banner, consent manager, and preference center for JavaScript, React, and Next.js, plus a self-hostable consent backend and REST API (@c15t/backend) that also runs as the inth.com managed service. It supports GDPR, CCPA, LGPD, IAB TCF 2.3, Google Consent Mode v2, and Global Privacy Control, with regional policy packs, audit-ready consent records, script and iframe gating, and first-party SDKs and CLI.
 
-Backed by: y-combinator
+**Areas:** Company · Consent Management · Privacy · Cookie Consent · GDPR · CCPA · Compliance · Consent · Developer Tools · Open Source · A2A
+
+## Inth on APIs.io
+
+Everything profiled for Inth is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/inth/](https://apis.io/providers/inth/)** — or go straight to one of the APIs or properties below.
+
+### APIs (5)
+
+- [Inth Consent API](https://apis.io/apis/inth/inth-consent-api/) — The Consent API from Inth — 1 operation(s) for consent.
+- [Inth Init API](https://apis.io/apis/inth/inth-init-api/) — The Init API from Inth — 1 operation(s) for init.
+- [Inth Legal Documents API](https://apis.io/apis/inth/inth-legal-documents-api/) — The Legal Documents API from Inth — 1 operation(s) for legal documents.
+- [Inth Status API](https://apis.io/apis/inth/inth-status-api/) — The Status API from Inth — 2 operation(s) for status.
+- [Inth Subjects API](https://apis.io/apis/inth/inth-subjects-api/) — The Subjects API from Inth — 2 operation(s) for subjects.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [inth-mcp.yml](https://apis.io/servers/inth/inth-mcp-yml/)
+
+#### Collections (5)
+
+Postman and Open Collection request collections.
+
+- [c15t Backend Consent API](https://apis.io/collections/inth/open-inth-consent-api/)
+- [c15t Backend Consent Init API](https://apis.io/collections/inth/open-inth-init-api/)
+- [c15t Backend Consent Legal Documents API](https://apis.io/collections/inth/open-inth-legal-documents-api/)
+- [c15t Backend Consent Status API](https://apis.io/collections/inth/open-inth-status-api/)
+- [c15t Backend Consent Subjects API](https://apis.io/collections/inth/open-inth-subjects-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Inth C15T Consent Api Overlay](https://apis.io/overlays/inth/inth-c15t-consent-api-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Inth Authentication](https://apis.io/security/inth/inth-authentication/)
+- [Inth Domain Security](https://apis.io/security/inth/inth-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Documentation](https://c15t.com/docs)
+- [API reference](https://c15t.com/docs/self-host)
+- [Pricing](https://inth.com/pricing)
+- [Sign up](https://inth.com/dashboard/sign-up)
+- [Support](https://github.com/c15t/c15t/issues)
+- [Changelog](https://c15t.com/changelog)
+- [Blog](https://inth.com/blog)
+- [GitHub](https://github.com/c15t)
+- [Status](https://status.inth.com)
+
+## API Evangelist rating
+
+**Unrated** — no public website could be reached for this company, so there was almost nothing to measure and nothing a reader could check.
+
+This is not a score of zero. No rating is published for this company. If that is wrong because something public exists that we missed, say so on this repository or email [info@apievangelist.com](mailto:info@apievangelist.com) and it will be re-run — free, and no justification needed.
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Inth: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/inth/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
